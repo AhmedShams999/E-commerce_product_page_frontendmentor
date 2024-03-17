@@ -1,0 +1,66 @@
+@use "../utils" as u;
+
+.listOverllay{
+  opacity: 0;
+  pointer-events: none;
+  @include u.sm{
+    opacity: 1;
+    pointer-events: all;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    &__container{
+      animation: slidIn 0.5s forwards ease-in-out;
+      padding: 20px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 45px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 65%;
+      background-color: white;
+      z-index: 100;
+      & img{
+        cursor: pointer;
+      }
+      &__list{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        &__title{
+          font-weight: 700;
+          position: relative;
+          width: 100%;
+          &:hover{
+            & .listOverllay__container__list__title--line{
+              position: absolute;
+              left: 0;
+              right: 0;
+              height: 1px;
+              margin-top: 5px;
+              background-color: var(--Orange);
+            }
+          }
+        }
+      }
+    }
+ }
+} 
+
+@keyframes slidIn {
+  0%{
+    left: -500px;
+  }
+
+  100%{
+    left: 0;
+  }
+}

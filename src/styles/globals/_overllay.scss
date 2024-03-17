@@ -1,0 +1,84 @@
+@use "../utils" as u;
+
+.overllay{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  @include u.sm{
+    display: none;
+  }
+  &__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    &__display{
+      width: 520px;
+      position: relative;
+      &--close{
+        position: absolute;
+        top: -45px;
+        right: 10px;
+        width: 16px;
+        cursor: pointer;
+      }
+      &--move{
+        position: absolute;
+        width: 45px;
+        padding: 12px 14px;
+        border-radius: 250px;
+        cursor: pointer;
+        &.next{
+          right: -20px;
+          top: 45%;
+          background-color: white;
+          
+        }
+
+        &.prev{
+          left: -20px;
+          top: 45%;
+          background-color: white;
+        }
+      }
+      &--displayImage{
+        width: 100%;
+        border-radius: 15px;
+      }
+    }
+
+    &__list{
+      display: flex;
+      gap: 25px;
+      &--selcted{
+        border: 2px solid var(--Orange);
+        border-radius: 10px;
+        & img{
+          opacity: 0.25;
+        }
+
+      }
+      & div{
+        width: 90px;
+        cursor: pointer;
+        &:hover{
+          & img{
+            opacity: 0.5;
+            transition: all 0.2s ease-in-out;
+          }
+        }
+        & img{
+          width: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
